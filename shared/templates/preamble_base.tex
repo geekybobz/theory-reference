@@ -123,6 +123,8 @@
 \definecolor{selfcheckBg}{HTML}{D5F5E3}
 \definecolor{connectionNavy}{HTML}{1A237E}
 \definecolor{connectionBg}{HTML}{E8EAF6}
+\definecolor{bridgeBrown}{HTML}{6E4B2B}
+\definecolor{bridgeBg}{HTML}{FBF4EC}
 \definecolor{notationSlate}{HTML}{2E4057}
 \definecolor{notationBg}{HTML}{EBF5FB}
 
@@ -225,6 +227,18 @@
   colback   = connectionBg,
   colframe  = connectionNavy,
   fonttitle = \bfseries\color{connectionNavy},
+  title     = {#2},
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  #1
+}
+
+% bridge (brown) -- internal cross-chapter connection; title passed as argument
+% Usage: \begin{bridge}{Ch.2: Orthogonality} ... \end{bridge}
+\newtcolorbox{bridge}[2][]{
+  enhanced, breakable,
+  colback   = bridgeBg,
+  colframe  = bridgeBrown,
+  fonttitle = \bfseries\color{bridgeBrown},
   title     = {#2},
   left=4pt, right=4pt, top=4pt, bottom=4pt,
   #1

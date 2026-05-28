@@ -29,12 +29,16 @@ After this chapter you will be able to:
 
 ONE_MOTIVATING_SENTENCE_BEFORE_ANY_DEFINITION.
 
+% CRA: intuition before definition for non-trivial concepts
+\begin{intuition}
+INTUITIVE\_FRAMING\_OR\_CONCRETE\_EXAMPLE.
+\end{intuition}
+
 \begin{definition}[DEFINITION_NAME]
 \label{def:LABEL}
 DEFINITION_BODY.
 \end{definition}
 
-% Use keyidea when the conceptual insight is non-obvious
 \begin{keyidea}
 KEY_INSIGHT.
 \end{keyidea}
@@ -48,7 +52,6 @@ THEOREM_STATEMENT.
 PROOF_BODY.
 \end{proof}
 
-% Use keyeqn for the 1-2 most important equations in the section
 \begin{keyeqn}
 \begin{equation}
   IMPORTANT\_EQUATION
@@ -57,9 +60,20 @@ PROOF_BODY.
 SHORT_ANNOTATION.
 \end{keyeqn}
 
+% Mode A -- verify: did you follow the derivation?
 \begin{checkpoint}
-VERIFICATION_QUESTION.
+VERIFICATION\_QUESTION.
 \end{checkpoint}
+
+% Mode B -- recall: close notes, generate from scratch
+% \begin{checkpoint}
+% Close these notes. Derive RESULT from scratch before reading on.
+% \end{checkpoint}
+
+% Elaborative interrogation: why-question after a non-trivial result
+% \begin{checkpoint}
+% What fails if condition X is removed?
+% \end{checkpoint}
 
 \begin{refnote}
 CITATION, Chapter/Section REFERENCE.
@@ -72,7 +86,10 @@ CITATION, Chapter/Section REFERENCE.
 
 % ... continue pattern above
 
-% ── Optional: connection box near end of chapter ────────────
 % \begin{connection}{DOMAIN Connection}
 % HOW_THIS_CHAPTER_CONNECTS_TO_THE_TARGET_APPLICATION.
 % \end{connection}
+
+% \begin{bridge}{Ch.N: CONCEPT\_NAME}
+% HOW THIS RESULT RELATES TO THE CONCEPT FROM CHAPTER N.
+% \end{bridge}

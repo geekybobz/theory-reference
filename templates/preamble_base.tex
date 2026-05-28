@@ -1,8 +1,7 @@
 % ============================================================
-%  preamble.tex -- theory-reference skill
-%  Self-contained general-purpose theoretical reference preamble.
-%  No dependency on any external project.
-%  Adapt the DOMAIN MACROS block at the bottom for each project.
+%  preamble_base.tex -- theory-reference skill
+%  Packages, colours, environments, layout, spacing.
+%  Generated once per project. Never re-read during chapter builds.
 % ============================================================
 
 % ── Encoding and fonts ──────────────────────────────────────
@@ -326,62 +325,3 @@
 \setlength{\arrayrulewidth}{0.4pt}
 
 \AtBeginDocument{\captionsetup{labelfont={bf,color=keyideaBlue}}}
-
-% ============================================================
-%  GENERAL MATH MACROS
-% ============================================================
-% Number sets
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-
-% Probability and expectation
-\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
-\newcommand{\Prob}[1]{P\!\left(#1\right)}
-\newcommand{\Ind}[1]{\mathbf{1}\!\left[#1\right]}
-\newcommand{\Var}[1]{\mathrm{Var}\!\left[#1\right]}
-
-% Norms and inner products
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\inner}[2]{\langle#1,\,#2\rangle}
-
-% Calculus
-\newcommand{\grad}{\nabla}
-\newcommand{\dd}{\mathrm{d}}
-\newcommand{\partd}[2]{\frac{\partial #1}{\partial #2}}
-
-% Common operators
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\sign}{sign}
-\newcommand{\KL}[2]{D_{\mathrm{KL}}\!\left(#1\,\|\,#2\right)}
-
-% Calligraphic shorthand
-\newcommand{\Xcal}{\mathcal{X}}
-\newcommand{\Ycal}{\mathcal{Y}}
-\newcommand{\Hcal}{\mathcal{H}}
-\newcommand{\Dcal}{\mathcal{D}}
-\newcommand{\Fcal}{\mathcal{F}}
-\newcommand{\Acal}{\mathcal{A}}
-\newcommand{\Scal}{\mathcal{S}}
-\newcommand{\Tcal}{\mathcal{T}}
-\newcommand{\Lcal}{\mathcal{L}}
-
-% ============================================================
-%  DOMAIN MACROS -- fill in per project, do not edit above
-% ============================================================
-%
-% Example (RL project):
-%   \newcommand{\pistar}{\pi^*}
-%   \newcommand{\Vpi}{V^{\pi}}
-%   \newcommand{\Qpi}{Q^{\pi}}
-%   \newcommand{\Vstar}{V^*}
-%   \newcommand{\Qstar}{Q^*}
-%   \newcommand{\Epi}[1]{\mathbb{E}_{\pi}\!\left[#1\right]}
-%
-% ============================================================

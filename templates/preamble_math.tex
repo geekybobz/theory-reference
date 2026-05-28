@@ -1,0 +1,52 @@
+% ============================================================
+%  preamble_math.tex -- theory-reference skill
+%  General-purpose math macros available in all documents.
+%  Read when checking or extending available macros.
+% ============================================================
+
+% ============================================================
+%  GENERAL MATH MACROS
+% ============================================================
+% Number sets
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+% Probability and expectation
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\Prob}[1]{P\!\left(#1\right)}
+\newcommand{\Ind}[1]{\mathbf{1}\!\left[#1\right]}
+\newcommand{\Var}[1]{\mathrm{Var}\!\left[#1\right]}
+
+% Norms and inner products
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\inner}[2]{\langle#1,\,#2\rangle}
+
+% Calculus
+\newcommand{\grad}{\nabla}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\partd}[2]{\frac{\partial #1}{\partial #2}}
+
+% Common operators
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\KL}[2]{D_{\mathrm{KL}}\!\left(#1\,\|\,#2\right)}
+
+% Calligraphic shorthand
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\Hcal}{\mathcal{H}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Tcal}{\mathcal{T}}
+\newcommand{\Lcal}{\mathcal{L}}
+
+% ============================================================

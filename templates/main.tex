@@ -1,0 +1,92 @@
+% ============================================================
+%  main.tex -- theory-reference skill template
+%  Replace all ALL_CAPS placeholders before use.
+%  Build: pdflatex main && biber main && pdflatex main && pdflatex main
+% ============================================================
+
+\documentclass[12pt, oneside]{book}
+
+\input{preamble}
+
+\addbibresource{references.bib}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ── Title page ──────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+
+  {\Huge\bfseries\color{keyideaBlue} DOCUMENT_TITLE\par}
+  \vspace{0.5em}
+  {\LARGE\itshape SUBTITLE\par}
+
+  \vspace{2.5cm}
+  \rule{0.6\linewidth}{0.6pt}\\[0.4em]
+  {\large\itshape SHORT_DESCRIPTION\par}
+  \rule{0.6\linewidth}{0.6pt}
+
+  \vspace{2.5cm}
+  {\large AUTHOR\par}
+  \vspace{0.5em}
+  {\normalsize\color{gray} YEAR\par}
+
+  \vfill
+
+  \begin{tabular}{ll}
+    \textbf{Level:}    & ENTRY_LEVEL to EXIT_LEVEL \\[4pt]
+    \textbf{Key refs:} & REF_1 \textbullet\ REF_2 \textbullet\ REF_3
+  \end{tabular}
+
+  \vspace{1cm}
+\end{titlepage}
+
+% ── How to use ──────────────────────────────────────────────
+\chapter*{How to Use These Notes}
+\addcontentsline{toc}{chapter}{How to Use These Notes}
+
+These notes are a self-contained derivation-first reference.
+Every section follows the same contract:
+\begin{itemize}
+  \item One motivating sentence before every definition.
+  \item Every result that matters is derived completely or the proof is cited explicitly.
+  \item Boxed environments guide reading (see legend below).
+\end{itemize}
+
+\bigskip
+\begin{description}[leftmargin=7em, labelwidth=6.5em, font=\normalfont]
+  \item[\colorbox{roadmapBg}{\textcolor{roadmapTeal}{\textbf{Roadmap}}}]
+        What we build and why -- read this first.
+  \item[\colorbox{keyideaBg}{\textcolor{keyideaBlue}{\textbf{Key Idea}}}]
+        Central conceptual insight.
+  \item[\colorbox{keyeqnBg}{\textcolor{keyeqnYellow}{\textbf{Key Eqn}}}]
+        An equation worth having at your fingertips.
+  \item[\colorbox{intuitionBg}{\textcolor{intuitionGray}{\textbf{Intuition}}}]
+        Concrete analogy or geometric picture.
+  \item[\colorbox{mistakeBg}{\textcolor{mistakePink}{\textbf{Mistake}}}]
+        A frequent misconception.
+  \item[\colorbox{checkBg}{\textcolor{checkAmber}{\textbf{Check}}}]
+        Inline verification: pause and confirm you followed the step.
+  \item[\colorbox{refnoteBg}{\textcolor{refnoteViolet}{\textbf{Ref Note}}}]
+        Pointers to sources for deeper treatment.
+  \item[\colorbox{connectionBg}{\textcolor{connectionNavy}{\textbf{Connection}}}]
+        Link to the target application domain.
+\end{description}
+
+% ── Table of contents ───────────────────────────────────────
+\tableofcontents
+
+% ============================================================
+%  CHAPTERS -- add \include{chapters/chNN_name} lines below
+% ============================================================
+
+\include{chapters/ch01_TOPIC}
+
+% ── Bibliography ────────────────────────────────────────────
+\printbibliography[heading=bibintoc, title={References}]
+
+% ============================================================
+\end{document}
+% ============================================================

@@ -37,5 +37,18 @@ Write to PROJECT_DIR:
 - `{PROJECT_DIR}/plan.md`
 - `{PROJECT_DIR}/outline/ch{NN}.md` for each chapter (zero-padded: `ch01`, `ch02`, …)
 
+Then update `{PROJECT_DIR}/README.md` (create if absent). Insert or replace a manifest block so future sessions can discover the project without asking:
+
+```
+<!-- theory-reference -->
+notes-dir: {PROJECT_DIR}
+plan-file: plan.md
+outline-dir: outline/
+chapters-dir: chapters/
+<!-- /theory-reference -->
+```
+
+If README already exists, append the block at the end. Do not remove existing content.
+
 Keep each outline dense and short.
 Do not generate LaTeX in this phase.

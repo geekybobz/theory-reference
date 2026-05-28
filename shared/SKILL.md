@@ -5,28 +5,38 @@ description: Build a rigorous compact theoretical reference document in LaTeX fo
 
 # theory-reference
 
-## Project directory
+## Project discovery
 
-Resolve PROJECT_DIR before routing — the folder where `plan.md`, `outline/`, and output LaTeX live.
+Before routing, discover the project structure. Do this in order:
 
-1. If the user's message contains a path, use it.
-2. Else if `README.md` exists in CWD, read it and look for `notes-dir:`, `project-dir:`, or `output-dir:`. Use the value if found.
-3. Else use CWD silently — do not ask.
+1. If the user's message contains a path, set PROJECT_DIR to that path.
+2. Read `README.md` from CWD if it exists — it is the project manifest.
+   Extract from it (look for a `<!-- theory-reference -->` block or plain fields):
+   - `notes-dir` / `project-dir` → PROJECT_DIR
+   - `plan-file` → PLAN_FILE (path to the plan document)
+   - `outline-dir` → OUTLINE_DIR
+   - `chapters-dir` → CHAPTERS_DIR
+3. If README gives no useful info, inspect PROJECT_DIR:
+   - PLAN_FILE: any `.md` file in PROJECT_DIR that contains both `topic:` and `chapters:` fields
+   - OUTLINE_DIR: any subdirectory named `outline`, `outlines`, or similar containing `.md` files
+4. Defaults (only if nothing found): PROJECT_DIR = CWD, PLAN_FILE = `plan.md`, OUTLINE_DIR = `outline/`, CHAPTERS_DIR = `chapters/`
+
+Do not ask the user unless discovery produces genuine ambiguity (e.g. two conflicting plan files found).
 
 Skill-internal files (`phases/`, `rules/`, `templates/`) resolve relative to the skill location and are unaffected.
 
 ## Routing
 
-Check PROJECT_DIR for `plan.md`.
+Use PLAN_FILE (discovered above) to determine phase.
 
-If `plan.md` is absent → read `phases/planning.md`. Read nothing else.
+If no plan file exists → read `phases/planning.md`. Read nothing else.
 
-If `plan.md` exists:
-- Validate it contains a `chapters:` field. If missing or malformed, tell the user and offer to regenerate.
-- If the user explicitly says "redo plan", "start over", or "new plan" → read `phases/planning.md`.
-- Otherwise → read `phases/chapter_build.md` and the requested `{PROJECT_DIR}/outline/ch{NN}.md`.
+If a plan file is found:
+- Read it. Validate it contains a `chapters:` field. If missing or malformed, tell the user and offer to regenerate.
+- If the user says "redo plan", "start over", or "new plan" → read `phases/planning.md`.
+- Otherwise → read `phases/chapter_build.md` and the relevant outline file from OUTLINE_DIR.
 
-If the user asks to review an outline only → read `{PROJECT_DIR}/outline/ch{NN}.md` and present it without building.
+If the user only wants to review an outline → read the relevant outline file and present it without building.
 
 ## Loading rule
 

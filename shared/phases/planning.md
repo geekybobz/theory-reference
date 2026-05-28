@@ -35,7 +35,7 @@ Read `outline_format.md`.
 
 Write to PROJECT_DIR:
 - `{PROJECT_DIR}/plan.md`
-- `{PROJECT_DIR}/outline/ch{N}.md` for each chapter
+- `{PROJECT_DIR}/outline/ch{NN}.md` for each chapter (zero-padded: `ch01`, `ch02`, …)
 
 Keep each outline dense and short.
 Do not generate LaTeX in this phase.

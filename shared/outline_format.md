@@ -18,10 +18,10 @@ chapters:
 
 # Chapter Outline Format
 
-One file per chapter at `{PROJECT_DIR}/outline/ch{N}.md`.
+One file per chapter at `{PROJECT_DIR}/outline/ch{NN}.md` (zero-padded: `ch01`, `ch02`, …).
 
 ```text
-CH{N}: {Title}
+CH{NN}: {Title}
 prereqs: {prior knowledge or chapter deps}
 depth: {theorem-proof-compact | derivation-first | intuition-first | survey}
 

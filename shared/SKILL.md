@@ -7,30 +7,26 @@ description: Build a rigorous compact theoretical reference document in LaTeX fo
 
 ## Project directory
 
-Before routing, resolve PROJECT_DIR — the folder where `plan.md`, `outline/`, and output LaTeX will live.
+Resolve PROJECT_DIR before routing — the folder where `plan.md`, `outline/`, and output LaTeX live.
 
-1. If the user's message contains a path, use it as PROJECT_DIR.
-2. Else read `README.md` in the working directory (if it exists) and look for a field such as `notes-dir:`, `project-dir:`, or `output-dir:`. Use the value if found.
-3. Else ask: "Where should project files live? Press Enter to use the current directory."
+1. If the user's message contains a path, use it.
+2. Else if `README.md` exists in CWD, read it and look for `notes-dir:`, `project-dir:`, or `output-dir:`. Use the value if found.
+3. Else use CWD silently — do not ask.
 
-Use PROJECT_DIR for every project file reference below. Skill-internal files (phases/, rules/, templates/) are unaffected — they resolve relative to the skill location as before.
+Skill-internal files (`phases/`, `rules/`, `templates/`) resolve relative to the skill location and are unaffected.
 
 ## Routing
 
 Check PROJECT_DIR for `plan.md`.
 
-If `plan.md` is absent:
-- Read `phases/planning.md`
-- Read nothing else unless that file tells you to
+If `plan.md` is absent → read `phases/planning.md`. Read nothing else.
 
-If `plan.md` exists and the user asks to build a chapter:
-- Read `phases/chapter_build.md`
-- Read only the requested `{PROJECT_DIR}/outline/ch{N}.md`
-- Read no other files unless `phases/chapter_build.md` tells you to
+If `plan.md` exists:
+- Validate it contains a `chapters:` field. If missing or malformed, tell the user and offer to regenerate.
+- If the user explicitly says "redo plan", "start over", or "new plan" → read `phases/planning.md`.
+- Otherwise → read `phases/chapter_build.md` and the requested `{PROJECT_DIR}/outline/ch{NN}.md`.
 
-If `plan.md` exists and the user asks to review a chapter:
-- Read only `{PROJECT_DIR}/outline/ch{N}.md`
-- Present it and wait
+If the user asks to review an outline only → read `{PROJECT_DIR}/outline/ch{NN}.md` and present it without building.
 
 ## Loading rule
 

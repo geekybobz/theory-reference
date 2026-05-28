@@ -34,6 +34,7 @@ If no plan file exists → read `phases/planning.md`. Read nothing else.
 If a plan file is found:
 - Read it. Validate it contains a `chapters:` field. If missing or malformed, tell the user and offer to regenerate.
 - If the user says "redo plan", "start over", or "new plan" → read `phases/planning.md`.
+- If the user says "evaluate", "evaluate plan", "audit plan", or "review plan" → read `phases/evaluate.md`. Load all outline files from OUTLINE_DIR.
 - Otherwise → read `phases/chapter_build.md` and the relevant outline file from OUTLINE_DIR.
 
 If the user only wants to review an outline → read the relevant outline file and present it without building.

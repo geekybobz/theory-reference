@@ -2,7 +2,7 @@
 
 ## Flow
 
-1. Read `outline/ch{N}.md`
+1. Read `{PROJECT_DIR}/outline/ch{N}.md`
 2. Present it to the user
 3. Wait for approval or edits
 4. Build the chapter only after approval
@@ -15,11 +15,17 @@ Also read:
 - `templates/preamble_math.tex`
 - `templates/preamble_domain.tex`
 
-Write project-level files only once.
+Write project-level files only once, to `{PROJECT_DIR}/`:
+- `{PROJECT_DIR}/main.tex`
+- `{PROJECT_DIR}/preamble_base.tex`
+- `{PROJECT_DIR}/preamble_math.tex`
+- `{PROJECT_DIR}/preamble_domain.tex`
 
 ## Always read before writing LaTeX
 
 Read `rules/rules.md` and `templates/chapter.tex` before drafting the chapter.
+
+Write the chapter to `{PROJECT_DIR}/chapters/ch{N}_{slug}.tex`.
 
 ## Constraints
 

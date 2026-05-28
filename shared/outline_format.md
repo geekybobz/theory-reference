@@ -18,7 +18,7 @@ chapters:
 
 # Chapter Outline Format
 
-One file per chapter at `outline/ch{N}.md`.
+One file per chapter at `{PROJECT_DIR}/outline/ch{N}.md`.
 
 ```text
 CH{N}: {Title}

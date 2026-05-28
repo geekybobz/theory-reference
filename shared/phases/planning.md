@@ -33,9 +33,9 @@ Ask for approval before proceeding.
 
 Read `outline_format.md`.
 
-Write:
-- `plan.md`
-- `outline/ch{N}.md` for each chapter
+Write to PROJECT_DIR:
+- `{PROJECT_DIR}/plan.md`
+- `{PROJECT_DIR}/outline/ch{N}.md` for each chapter
 
 Keep each outline dense and short.
 Do not generate LaTeX in this phase.

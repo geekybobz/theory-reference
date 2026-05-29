@@ -50,13 +50,9 @@ EOF
 echo "Codex:  installed to $CODEX_DEST"
 
 # ── Claude ───────────────────────────────────────────────────
-# ~/.claude/skills/theory-reference may be a symlink; resolve to the real path.
-CLAUDE_LINK="$HOME/.claude/skills/theory-reference"
-if [ -L "$CLAUDE_LINK" ]; then
-  CLAUDE_DEST="$(readlink "$CLAUDE_LINK")"
-else
-  CLAUDE_DEST="$CLAUDE_LINK"
-fi
+# Always install to the canonical path; remove any symlink that may exist.
+CLAUDE_DEST="$HOME/.claude/skills/theory-reference"
+rm -rf "$CLAUDE_DEST"
 mkdir -p "$CLAUDE_DEST"
 
 rm -rf "$CLAUDE_DEST/shared"

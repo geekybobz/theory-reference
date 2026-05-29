@@ -37,7 +37,15 @@ Write to PROJECT_DIR:
 - `{PROJECT_DIR}/plan.md`
 - `{PROJECT_DIR}/outline/ch{NN}.md` for each chapter (zero-padded: `ch01`, `ch02`, …)
 
-Then update `{PROJECT_DIR}/README.md` (create if absent). Insert or replace a manifest block so future sessions can discover the project without asking:
+Write `{PROJECT_DIR}/.theory-state` (create or overwrite — this is a session cache):
+```
+project-dir: {PROJECT_DIR}
+plan-file: plan.md
+outline-dir: outline/
+chapters-dir: chapters/
+```
+
+Update `{PROJECT_DIR}/README.md` (create if absent). Insert or replace a manifest block:
 
 ```
 <!-- theory-reference -->

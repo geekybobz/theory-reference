@@ -3,63 +3,48 @@
 Apply on every generated LaTeX file.
 
 ## Prose
-
-- No em dashes
-- Start each section with one motivating sentence
-- No sentence begins with a math symbol
-- No prose block longer than 5 sentences without a break
-- Prefer short active sentences
-- No repeated summary sentences
-- CRA ordering: for non-trivial concepts place an `intuition` block or a one-line concrete example *before* `\begin{definition}`, not after
-- Elaborative interrogation: after any non-trivial theorem, pose one why-question before the next definition (e.g. "What fails if condition X is removed?") — place in a mode-B checkpoint or as a plain sentence
+- No em dashes; no sentence begins with a math symbol
+- Start each section with one motivating sentence; no filler summary sentences
+- No prose block longer than 5 sentences without a break; prefer short active sentences
+- CRA + elaboration: place `intuition` block or concrete example *before* `\begin{definition}`; after any non-trivial theorem pose a why-question before the next def (mode-B checkpoint or plain sentence)
 
 ## Math
-
-- Every display equation gets `\label{eq:...}`
-- Every display equation is referenced in text
-- Unreferenced equations should be inline
-- Every theorem-like statement has an inline proof or a deferred source note
-- Proofs end with `\qed`
+- Every display equation: `\label{eq:...}` and referenced in text; unreferenced → inline
+- Every theorem-like statement: inline proof or deferred source note; proofs end with `\qed`
 
 ## Layout
-
-- No `\newpage`, `\clearpage`, `\pagebreak`
-- No large manual spacing
-- Keep box use sparse
-- Figures: include only when a diagram encodes structural information that prose and equations cannot convey (commutative diagrams, geometric proof sketches, dependency graphs). For MST-style content this is rare. When used: generate with Python (`scripts/figure_template.py`), output as `.pgf` (`\input{}`) or `.pdf` (`\includegraphics{}`). Place the figure immediately adjacent to the text that references it.
-- Cite figures in text
+- No `\newpage`, `\clearpage`, `\pagebreak`; no large manual spacing; keep box use sparse
+- Figures: only when a diagram encodes structure prose/equations cannot (commutative diagrams, geometric sketches, dep graphs). Generate with Python (`scripts/figure_template.py`), output `.pgf` or `.pdf`. Cite in text.
 
 ## Notation
 
-- scalar: `$x$`
-- vector: `$\mathbf{x}$`
-- matrix: `$\mathbf{A}$`
-- set: `$\mathcal{X}$`
-- random variable: `$X$`
-- operator names upright: `\mathrm{tr}`, `\argmax`
-- defined as: `:=`
-- expectation specifies distribution when needed
-- use domain macros only in `preamble_domain.tex`
+| Form | Style |
+|---|---|
+| scalar | `$x$` |
+| vector | `$\mathbf{x}$` |
+| matrix | `$\mathbf{A}$` |
+| set | `$\mathcal{X}$` |
+| random variable | `$X$` |
+| operator | `\mathrm{tr}`, `\argmax` (upright) |
+| defined as | `:=` |
+| domain macros | `preamble_domain.tex` only |
 
-## Box usage
+## Boxes
 
-Use only when they add information density. At most 2 boxes per section. No nested boxes. Bullets only inside `roadmap`.
+At most 2 per section. No nested boxes. Bullets only inside `roadmap`.
 
-| Box | Colour | Rule |
-|---|---|---|
-| `roadmap` | teal | once per chapter |
-| `keyidea` | blue | central conceptual insight |
-| `keyeqn` | yellow | core equations only |
-| `intuition` | gray | useful mental model |
-| `mistake` | pink | real common misconception only |
-| `checkpoint` | amber | mode A: verify (did you follow the derivation); mode B: recall (close notes, derive from scratch) |
-| `selfcheck` | green | claim fully proved here |
-| `refnote` | purple | once per section, at end |
-| `connection` | navy | once near chapter end; links to application domain |
-| `bridge` | brown | once per section max; links to a specific result in another chapter |
-| `notation` | slate | notation-heavy openings only |
+| Box | When |
+|---|---|
+| `roadmap` | once per chapter |
+| `keyidea` | central conceptual insight |
+| `keyeqn` | core equations only |
+| `intuition` | useful mental model |
+| `mistake` | real common misconception only |
+| `checkpoint` | mode A: verify (follow derivation) / mode B: recall (derive from scratch) |
+| `selfcheck` | claim fully proved here |
+| `refnote` | once per section, at end |
+| `connection` | once near chapter end; links to application domain |
+| `bridge` | once per section max; links to result in another chapter |
+| `notation` | notation-heavy openings only |
 
-Signatures:
-- All boxes except `connection` and `bridge`: `\begin{boxname}[opts] ... \end{boxname}`
-- `connection` takes a mandatory title: `\begin{connection}{RL Connection} ... \end{connection}`
-- `bridge` takes a mandatory title: `\begin{bridge}{Ch.2: Orthogonality} ... \end{bridge}`
+Signatures: all boxes → `\begin{name}...\end{name}`. `connection` and `bridge` take a mandatory title arg: `\begin{bridge}{Ch.2: Orthogonality}`.

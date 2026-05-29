@@ -10,16 +10,17 @@ description: Build a rigorous compact theoretical reference document in LaTeX fo
 Before routing, discover the project structure. Do this in order:
 
 1. If the user's message contains a path, set PROJECT_DIR to that path.
-2. Read `README.md` from CWD if it exists — it is the project manifest.
+2. Check `{PROJECT_DIR or CWD}/.theory-state` — if found, extract `project-dir`, `plan-file`, `outline-dir`, `chapters-dir` directly and skip steps 3–4.
+3. Read `README.md` from CWD if it exists — it is the project manifest.
    Extract from it (look for a `<!-- theory-reference -->` block or plain fields):
    - `notes-dir` / `project-dir` → PROJECT_DIR
    - `plan-file` → PLAN_FILE (path to the plan document)
    - `outline-dir` → OUTLINE_DIR
    - `chapters-dir` → CHAPTERS_DIR
-3. If README gives no useful info, inspect PROJECT_DIR:
+4. If README gives no useful info, inspect PROJECT_DIR:
    - PLAN_FILE: any `.md` file in PROJECT_DIR that contains both `topic:` and `chapters:` fields
    - OUTLINE_DIR: any subdirectory named `outline`, `outlines`, or similar containing `.md` files
-4. Defaults (only if nothing found): PROJECT_DIR = CWD, PLAN_FILE = `plan.md`, OUTLINE_DIR = `outline/`, CHAPTERS_DIR = `chapters/`
+5. Defaults (only if nothing found): PROJECT_DIR = CWD, PLAN_FILE = `plan.md`, OUTLINE_DIR = `outline/`, CHAPTERS_DIR = `chapters/`
 
 Do not ask the user unless discovery produces genuine ambiguity (e.g. two conflicting plan files found).
 

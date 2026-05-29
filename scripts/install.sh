@@ -29,6 +29,9 @@ CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
 CODEX_DEST="$CODEX_HOME_DIR/skills/theory-reference"
 mkdir -p "$CODEX_DEST"
 
+# Remove any stray subdirs left from old installs (Codex prunes them anyway).
+rm -rf "$CODEX_DEST/shared" "$CODEX_DEST/agents"
+
 cp "$REPO_ROOT/codex/CODEX.md" "$CODEX_DEST/CODEX.md"
 
 cat > "$CODEX_DEST/SKILL.md" <<EOF
